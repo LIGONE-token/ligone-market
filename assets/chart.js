@@ -9,30 +9,33 @@ if (!container) {
   console.warn("Chart container not found");
 } else {
 
+   container.innerHTML = "";
+
   // Chart erstellen
   const chart = LightweightCharts.createChart(container, {
-    width: container.clientWidth,
-    height: 260,
-    layout: {
-      background: { color: "#ffffff" },
-      textColor: "#6b7280",
-    },
-    grid: {
-      vertLines: { color: "#f0f2f4" },
-      horzLines: { color: "#f0f2f4" },
-    },
-    timeScale: {
-      borderColor: "#e5e7eb",
-      timeVisible: true,
-      secondsVisible: false,
-    },
-    rightPriceScale: {
-      borderColor: "#e5e7eb",
-    },
-    crosshair: {
-      mode: LightweightCharts.CrosshairMode.Normal,
-    },
-  });
+  width: container.clientWidth,
+  height: 260, // ← explizit!
+  layout: {
+    background: { color: "#ffffff" },
+    textColor: "#6b7280",
+  },
+  grid: {
+    vertLines: { color: "#f0f2f4" },
+    horzLines: { color: "#f0f2f4" },
+  },
+  timeScale: {
+    borderColor: "#e5e7eb",
+    timeVisible: true,
+    secondsVisible: false,
+  },
+  rightPriceScale: {
+    borderColor: "#e5e7eb",
+  },
+  crosshair: {
+    mode: LightweightCharts.CrosshairMode.Normal,
+  },
+});
+
 
   // Linie hinzufügen
   const lineSeries = chart.addLineSeries({
